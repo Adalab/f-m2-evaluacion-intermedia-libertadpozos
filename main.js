@@ -3,29 +3,31 @@
 const btnEl=document.querySelector('.btn');
 const inputEl=document.querySelector('#number');
 const feedbackEl=document.querySelector('.feedback');
-const tryEl=document.querySelector('.try');
-
+let tryEl=document.querySelector('.try');
+let cont=0;
 
 function getRandomNumber(max) {
     let randomNumber= Math.ceil(Math.random() * max);
     return randomNumber; 
   }
-  console.log('> ' + getRandomNumber(100));
-  
-  //función
+  const randomNumber=(getRandomNumber(100));
+  console.log(randomNumber);
+
 function compareNumber(){
     const numberInput=inputEl.value;
-    const number=parseInt(numberInput);
-
-    //**** averiguar cómo tomo el randomNumber y trabajo con él aquí 
-//         if (number<getRandomNumber){
-//             feedbackEl.innerHTML='demasiado alto ';
-//         }
-//         else{
-//             feedbackEl.innerHTML='demasiado bajo';
-//         }
+    const number=parseInt(numberInput); 
+         if (number>randomNumber){
+             feedbackEl.innerHTML='demasiado alto ';
+         }
+         else if (number<randomNumber){
+             feedbackEl.innerHTML='demasiado bajo';
+         }
+         else if (number===randomNumber){
+            feedbackEl.innerHTML='ERES UNA GANADORA!!!';
+         }
+         cont+=1;
+         tryEl.innerHTML=cont;
  }
-  
    btnEl.addEventListener('click', compareNumber);
 
 
