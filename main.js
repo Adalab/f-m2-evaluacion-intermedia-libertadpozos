@@ -29,3 +29,17 @@ function compareNumber() {
   tryEl.innerHTML = cont;
 }
 btnEl.addEventListener('click', compareNumber);
+
+// logic function compareNumber//
+//recoger el valor que tiene input cuando hago click. 
+//cambiar el string del input a number
+// si el número del input es mayor al número random entoncens en el feedback  debe decir en pantalla: 'demasiado bajo"
+//si el número del input es menor al número random entonces en el feedback deberá decir: 'demasiado alto'
+// si el número del input es igual al random en el deedback deberá decir que se ha ganado el juego. 
+
+//contador: 
+//el contador deberá comenzar en 0 y cada que se ejecute la función deberá sumar uno. 
+// el espacio destinado al contador (try) deberá mostrar el contador en pantalla. 
+
+
+
