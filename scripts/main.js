@@ -26,13 +26,15 @@ function showFeedback (){
     feedbackEl.innerHTML = 'ERES UNA GANADORA!!!';
   }
 }
-
-function compareNumber() {
-  showFeedback();
+function showCounter(){
   cont += 1;
   tryEl.innerHTML = cont;
 }
-btnEl.addEventListener('click', compareNumber);
+function handlerCompareNumber() {
+  showFeedback();
+  showCounter();
+}
+btnEl.addEventListener('click', handlerCompareNumber);
 
 // logic function compareNumber//
 //recoger el valor que tiene input cuando hago click. 
