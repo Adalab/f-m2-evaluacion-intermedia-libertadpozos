@@ -13,7 +13,7 @@ function getRandomNumber(max) {
 const randomNumber = getRandomNumber(100);
 console.log(randomNumber);
 
-function compareNumber() {
+function showFeedback (){
   const numberInput = inputEl.value;
   const number = parseInt(numberInput);
   if (number > randomNumber) {
@@ -25,6 +25,10 @@ function compareNumber() {
   else if (number === randomNumber) {
     feedbackEl.innerHTML = 'ERES UNA GANADORA!!!';
   }
+}
+
+function compareNumber() {
+  showFeedback();
   cont += 1;
   tryEl.innerHTML = cont;
 }
