@@ -10,7 +10,7 @@ function getRandomNumber(max) {
   let randomNumber = Math.ceil(Math.random() * max);
   return randomNumber;
 }
-const randomNumber = (getRandomNumber(100));
+const randomNumber = getRandomNumber(100);
 console.log(randomNumber);
 
 function compareNumber() {
