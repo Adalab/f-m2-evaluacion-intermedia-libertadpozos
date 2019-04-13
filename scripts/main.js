@@ -13,6 +13,9 @@ function getRandomNumber(max) {
 const randomNumber = getRandomNumber(100);
 console.log(randomNumber);
 
+//string as a parámetro
+// change (a);
+
 function showFeedback (){
   const numberInput = inputEl.value;
   const number = parseInt(numberInput);
