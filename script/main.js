@@ -6,6 +6,10 @@ const feedbackEl = document.querySelector('.feedback');
 let tryEl = document.querySelector('.try');
 let cont = 0;
 
+function feedback(msg){
+    return feedbackEl.innerHTML=msg;
+}
+
 function getRandomNumber(max) {
   let randomNumber = Math.ceil(Math.random() * max);
   return randomNumber;
@@ -17,13 +21,13 @@ function showFeedback (){
   const numberInput = inputEl.value;
   const number = parseInt(numberInput);
   if (number > randomNumber) {
-    feedbackEl.innerHTML = 'demasiado alto ';
+    feedback('demasiado alto');
   }
   else if (number < randomNumber) {
-    feedbackEl.innerHTML = 'demasiado bajo';
+    feedback('demasiado bajo');
   }
   else if (number === randomNumber) {
-    feedbackEl.innerHTML = 'ERES UNA GANADORA!!!';
+    feedback('ERES UNA GANADORA!!!');
   }
 }
 function showCounter(){
