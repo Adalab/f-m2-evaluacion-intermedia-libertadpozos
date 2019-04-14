@@ -5,7 +5,6 @@
 body{
     background-image:  linear-gradient(to right top, #282941, #2e314f, #333a5e, #37436d, #3a4d7d, #3d558d, #3f5d9d, #4165ad, #466dc0, #4d75d4, #557ce7, #5f84fb);
     height: 100vh;
-    
 }
 .main-container{
     display: flex;
@@ -14,7 +13,6 @@ body{
     align-items: center;
     height: 100vh;
 }
-
 .btn{
     color: white;
     background-color: #282941;
@@ -24,7 +22,6 @@ body{
     margin-top:30px;
     box-shadow: 5px 5px 10px #282941;
     font-size: 18px
-
 }
 .bubble{
     display:flex;
