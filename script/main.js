@@ -28,6 +28,7 @@ function showFeedback() {
     saveInnerFeedback("demasiado bajo");
   } else if (number === randomNumber) {
     saveInnerFeedback("HAS GANADOO!!!");
+    localStorage.setItem('cont', cont+1);
   }
 }
 //CONTADOR
