@@ -5,6 +5,15 @@ const inputEl = document.querySelector("#number");
 const feedbackEl = document.querySelector(".feedback");
 let tryEl = document.querySelector(".try");
 let cont = 0;
+const inputNameEl = document.querySelector('#name');
+const pUsernameEl= document.querySelector('.username');
+
+let objPlayers = {
+name: "",
+score:""
+}
+
+
 
 //RANDOM 
 function getRandomNumber(max) {
@@ -18,7 +27,7 @@ console.log(randomNumber);
 function saveInnerFeedback(msg) {
   return (feedbackEl.innerHTML = msg);
 }
-//sHOW FEEDBACK BY COMPARIN DE RANDOM AND THE INPUT
+//sHOW FEEDBACK BY COMPARING DE RANDOM AND THE INPUT
 function showFeedback() {
   const numberInput = inputEl.value;
   const number = parseInt(numberInput);
@@ -28,20 +37,53 @@ function showFeedback() {
     saveInnerFeedback("demasiado bajo");
   } else if (number === randomNumber) {
     saveInnerFeedback("HAS GANADOO!!!");
-    localStorage.setItem('cont', cont+1);
+    objPlayers.score=cont+1;
+    saveObjectCache();
+    //SAVE COUNTER IN OBJECT AT THIS MOMENT BEACAUSE IT IS THE LAST TRY. 
   }
 }
-//CONTADOR
+//COUNTER
 function showCounter() {
   cont += 1;
   tryEl.innerHTML = cont;
   return cont;
 }
+//HANDLER 
 function handlerCompareNumber() {
   showFeedback();
   showCounter();
 }
 btnEl.addEventListener("click", handlerCompareNumber);
+
+//SHOW NAME ON SCREEN
+function showInputinParagraph(){
+  const inputNameContent= inputNameEl.value;
+  pUsernameEl.innerHTML= "Hola " + inputNameContent + "!!!";
+   if (inputNameContent===""){
+   pUsernameEl.innerHTML="";
+  }
+}
+inputNameEl.addEventListener("keyup", showInputinParagraph);
+
+//SAVE CACHE
+
+function saveNameLS(){
+  const inputNameContent= inputNameEl.value;
+  objPlayers.name=inputNameContent;
+  saveObjectCache();
+//localStorage.setItem('name', inputNameContent);
+}
+inputNameEl.addEventListener("keyup", saveNameLS);
+
+
+//SAVE NAME AND SCORE IN OBJECT
+ function saveObjectCache(){
+  localStorage.setItem("Players", JSON.stringify(objPlayers));
+}
+ 
+
+
+
 
 // *******logic function compareNumber//
 //recoger el valor que tiene input cuando hago click.
@@ -54,24 +96,6 @@ btnEl.addEventListener("click", handlerCompareNumber);
 //el contador deberá comenzar en 0 y cada que se ejecute la función deberá sumar uno.
 // el espacio destinado al contador (try) deberá mostrar el contador en pantalla.
 
-const inputNameEl = document.querySelector('#name');
-const pUsernameEl= document.querySelector('.username');
-
-function saveNameLS(){
-  const inputNameContent= inputNameEl.value;
-localStorage.setItem('name', inputNameContent);
-}
-inputNameEl.addEventListener("keyup", saveNameLS);
-
-function showInputinParagraph(){
-  const inputNameContent= inputNameEl.value;
-  pUsernameEl.innerHTML= "Hola " + inputNameContent + "!!!";
-   if (inputNameContent===""){
-   pUsernameEl.innerHTML="";
-  }
-}
-inputNameEl.addEventListener("keyup", showInputinParagraph);
-
 //***** logic function: cada que escribo quiero que aparezca en el párrfo y en el local storage. 
 //recojo el párrafo e input
 // pongo botón de listener a input de keyup
@@ -82,5 +106,3 @@ inputNameEl.addEventListener("keyup", showInputinParagraph);
   //hacer botón de reset que borre el local storage. 
 
   //hacer una lista de las personas que van jugando.
-
-  //
